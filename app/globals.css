@@ -1,0 +1,79 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 17, 24, 39;
+    --background-end-rgb: 17, 24, 39;
+  }
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: linear-gradient(
+      to bottom,
+      transparent,
+      rgb(var(--background-end-rgb))
+    )
+    rgb(var(--background-start-rgb));
+}
+
+/* Code block styling */
+pre {
+  @apply bg-gray-900 text-gray-100 p-4 rounded-lg overflow-x-auto my-4;
+}
+
+code {
+  @apply text-sm font-mono;
+}
+
+/* Inline code */
+:not(pre) > code {
+  @apply bg-gray-200 dark:bg-gray-800 px-1.5 py-0.5 rounded text-sm;
+}
+
+/* Markdown styling */
+.markdown h2 {
+  @apply text-3xl font-bold mt-8 mb-4;
+}
+
+.markdown h3 {
+  @apply text-2xl font-semibold mt-6 mb-3;
+}
+
+.markdown h4 {
+  @apply text-xl font-semibold mt-4 mb-2;
+}
+
+.markdown p {
+  @apply mb-4 leading-7;
+}
+
+.markdown ul {
+  @apply list-disc list-inside mb-4 space-y-2;
+}
+
+.markdown ol {
+  @apply list-decimal list-inside mb-4 space-y-2;
+}
+
+.markdown a {
+  @apply text-primary hover:underline;
+}
+
+.markdown strong {
+  @apply font-semibold;
+}
+
+.markdown blockquote {
+  @apply border-l-4 border-gray-300 pl-4 italic my-4;
+}
+
