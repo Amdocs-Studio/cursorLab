@@ -5,7 +5,7 @@ export interface Task {
 
 export interface ContentBlock {
   type: 'text' | 'list' | 'code' | 'callout' | 'steps'
-  value: string
+  value?: string
   language?: string
   title?: string
   variant?: 'info' | 'warning' | 'success'
