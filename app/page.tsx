@@ -177,19 +177,19 @@ export default function Home() {
             <div className="prose prose-lg dark:prose-invert max-w-none">
               {section.content.map((content, idx) => (
                 <div key={idx} className="mb-8">
-                  {content.type === 'text' && (
+                  {content.type === 'text' && content.value && (
                     <div className="markdown" dangerouslySetInnerHTML={{ __html: content.value }} />
                   )}
                   
                   {content.type === 'list' && (
                     <ul className="space-y-2 list-disc list-inside">
                       {content.items?.map((item, i) => (
-                        <li key={i} className="leading-7">{item}</li>
+                        <li key={i} className="leading-7" dangerouslySetInnerHTML={{ __html: item }} />
                       ))}
                     </ul>
                   )}
 
-                  {content.type === 'code' && (
+                  {content.type === 'code' && content.value && (
                     <CodeBlock
                       code={content.value}
                       language={content.language || 'bash'}
@@ -197,7 +197,7 @@ export default function Home() {
                     />
                   )}
 
-                  {content.type === 'callout' && (
+                  {content.type === 'callout' && content.value && (
                     <div className={`p-4 rounded-lg border-l-4 my-4 ${
                       content.variant === 'warning'
                         ? 'bg-yellow-50 dark:bg-yellow-900/20 border-yellow-500'

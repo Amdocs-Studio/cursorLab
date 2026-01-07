@@ -32,7 +32,7 @@ export const labSections: LabSection[] = [
     id: 'welcome',
     title: 'Welcome to Cursor Workshop!',
     subtitle: 'Hands-On Lab',
-    duration: '3 min',
+    duration: '5 min',
     content: [
       {
         type: 'text',
@@ -42,7 +42,7 @@ export const labSections: LabSection[] = [
         type: 'callout',
         variant: 'info',
         title: 'Note',
-        value: 'Part 1 (Overview) will be presented live from https://illin7809:9999/dev'
+        value: 'Part 1 (Overview) will be presented live from <a href="https://illin7809:9999/dev" target="_blank">https://illin7809:9999/dev</a>'
       },
       {
         type: 'text',
@@ -106,7 +106,7 @@ export const labSections: LabSection[] = [
     id: 'harmony2',
     title: 'Harmony2 Setup',
     subtitle: 'Create Your Project',
-    duration: '15 min',
+    duration: '20 min',
     content: [
       {
         type: 'steps',
@@ -147,7 +147,7 @@ export const labSections: LabSection[] = [
     duration: '5 min',
     tasks: [
       { id: 'task-3-1', label: 'Open Cursor Settings (Ctrl+Shift+J)' },
-      { id: 'task-3-2', label: 'Find "Docs" or "Context" section' },
+      { id: 'task-3-2', label: 'Find "Docs" section' },
       { id: 'task-3-3', label: 'Add: https://amdocs-studio.github.io/harmony-2.0' },
       { id: 'task-3-4', label: 'Save configuration' },
     ],
@@ -268,7 +268,7 @@ Put these in .cursor/rules"`
       {
         type: 'list',
         items: [
-          'Download from: https://www.figma.com/downloads/',
+          'Download from: <a href="https://www.figma.com/downloads/" target="_blank">https://www.figma.com/downloads/</a>',
           'Install and sign in',
           'Keep app running in background'
         ]
@@ -309,130 +309,419 @@ Put these in .cursor/rules"`
   {
     id: 'gallery-build',
     title: 'Device Gallery - Part 2',
-    subtitle: 'Build with Different Modes',
-    duration: '50 min',
+    subtitle: 'Build with Figma MCP',
+    duration: '60 min',
     content: [
       {
         type: 'text',
-        value: '<h3>🔹 ASK Mode (Ctrl+K → Ask) - For Questions</h3>'
+        value: '<h3>Step 1: Connect Cursor to Figma Design (5 min)</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>First, tell Cursor which Figma design you\'re working with.</p>'
       },
       {
         type: 'code',
+        title: 'In Cursor Chat (Agent Mode)',
         language: 'text',
-        value: `Select code in your gallery and ask:
-"Explain how this component works"
-"What are potential edge cases?"
-"How can I improve performance?"
+        value: `"I want to build components from this Figma design:
+https://www.figma.com/design/9dCGGaBPPd9Ix4nlLm5JAA/Cursor-workshop?node-id=0-1
 
-Try: "Create a React button component" → Fail! 
-(Ask mode doesn't create, only explains)`
+Please analyze the design and tell me what components you see."`
+      },
+      {
+        type: 'callout',
+        variant: 'success',
+        title: '✅ What Happens',
+        value: 'Cursor connects via Figma MCP, analyzes the design, and lists components (DeviceCard, SearchBar, FilterPanel, etc.)'
       },
       {
         type: 'text',
-        value: '<h3>🔹 AGENT Mode (Chat Panel) - For Building</h3>'
-      },
-      {
-        type: 'code',
-        title: 'Phase 1: Generate Components (15 min)',
-        language: 'text',
-        value: `"Create a device gallery based on the Figma design with:
-- DeviceCard component (image, name, specs, price)
-- Gallery grid with responsive layout
-- Use Material-UI components
-- Match the Figma colors and spacing"`
-      },
-      {
-        type: 'code',
-        title: 'Phase 2: Add Features (15 min)',
-        language: 'text',
-        value: `"Add search functionality to filter devices by name"
-"Add a filter panel for category and price range"
-"Add favorite button to each card"`
+        value: '<h3>Step 2: Start Small - Build Device Card (10 min)</h3>'
       },
       {
         type: 'text',
-        value: '<h3>🔹 PLAN Mode - For Strategy</h3>'
+        value: '<p>Start with the most important component: the Device Card.</p>'
+      },
+      {
+        type: 'code',
+        title: '🔹 ASK Mode - Understand First',
+        language: 'text',
+        value: `"Looking at the device card in this Figma design, 
+what properties and data does it need?
+What are the key visual elements?"`
+      },
+      {
+        type: 'code',
+        title: '🔹 AGENT Mode - Build It',
+        language: 'text',
+        value: `"Create a DeviceCard React component from the Figma design:
+- Use Material-UI (or Tailwind CSS)
+- Include: image, name, brand, specs, price, rating
+- Match exact colors and spacing from Figma
+- Make it responsive
+- Add TypeScript types"`
+      },
+      {
+        type: 'callout',
+        variant: 'warning',
+        title: '⚠️ Review!',
+        value: 'Check if colors, spacing, layout match Figma. Ask Cursor to adjust if needed.'
+      },
+      {
+        type: 'text',
+        value: '<h3>Step 3: Build Filter Panel (10 min)</h3>'
+      },
+      {
+        type: 'code',
+        title: 'Agent Mode',
+        language: 'text',
+        value: `"Create FilterPanel component from Figma:
+- Category selection
+- Price range slider
+- Brand checkboxes
+- Apply button
+- Match Figma styling"`
+      },
+      {
+        type: 'text',
+        value: '<h3>Step 4: Build Search Bar (5 min)</h3>'
+      },
+      {
+        type: 'code',
+        title: 'Agent Mode',
+        language: 'text',
+        value: `"Create SearchBar component from Figma:
+- Search input with icon
+- Real-time search
+- Clear button
+- Match styling"`
+      },
+      {
+        type: 'text',
+        value: '<h3>Step 5: Combine Everything - Main Gallery (15 min)</h3>'
+      },
+      {
+        type: 'code',
+        title: '🔹 PLAN Mode - Strategy First',
+        language: 'text',
+        value: `"Plan DeviceGallery component that:
+1. Uses DeviceCard, FilterPanel, SearchBar
+2. Manages state for filters/search
+3. Fetches device data
+4. Implements filtering logic
+5. Has responsive grid layout
+
+Give me a step-by-step plan."`
+      },
+      {
+        type: 'code',
+        title: '🔹 AGENT Mode - Execute Plan',
+        language: 'text',
+        value: `"Create DeviceGallery using full Figma design:
+https://www.figma.com/design/9dCGGaBPPd9Ix4nlLm5JAA/Cursor-workshop?node-id=0-1
+
+- Use our DeviceCard, FilterPanel, SearchBar
+- State management for filters/search
+- Responsive grid (1 col mobile, 2 tablet, 3 desktop)
+- Sample device data
+- Filtering and search logic
+- Match exact Figma layout"`
+      },
+      {
+        type: 'text',
+        value: '<h3>Step 6: Add Interactivity (10 min)</h3>'
       },
       {
         type: 'code',
         language: 'text',
-        value: `"Plan how to add user authentication to this gallery"
-"Plan performance optimizations for the device gallery"
-Review the plan, modify steps, then execute`
+        value: `"Add interactive features:
+- Favorite button (toggle state)
+- Hover effects
+- Loading skeleton
+- Empty state for no results
+- Smooth animations"`
       },
       {
         type: 'text',
-        value: '<h3>🔹 DEBUG Mode - For Fixing</h3>'
+        value: '<h3>Step 7: Debug & Fix (5 min)</h3>'
+      },
+      {
+        type: 'code',
+        title: '🔹 DEBUG Mode',
+        language: 'text',
+        value: `If issues arise:
+"The layout breaks on mobile - debug and fix"
+"Filtering not working - find and fix bug"
+"Colors don't match Figma - analyze and correct"`
+      },
+    ]
+  },
+  {
+    id: 'gallery-polish',
+    title: 'Device Gallery - Part 3',
+    subtitle: 'Polish & Best Practices',
+    duration: '15 min',
+    content: [
+      {
+        type: 'text',
+        value: '<h3>Make It Production-Ready</h3>'
+      },
+      {
+        type: 'code',
+        title: 'Accessibility',
+        language: 'text',
+        value: `"Make the gallery fully accessible:
+- Add proper ARIA labels
+- Ensure keyboard navigation
+- Add focus indicators
+- Screen reader support"`
+      },
+      {
+        type: 'code',
+        title: 'Performance',
+        language: 'text',
+        value: `"Optimize performance:
+- Lazy load images
+- Virtual scrolling for large lists
+- Memoize expensive calculations
+- Add loading states"`
+      },
+      {
+        type: 'code',
+        title: 'Testing',
+        language: 'text',
+        value: `"Generate tests for:
+- DeviceCard component
+- FilterPanel functionality
+- SearchBar behavior  
+- Full gallery integration
+
+Use React Testing Library."`
+      },
+      {
+        type: 'text',
+        value: '<h3>🎨 Experiment!</h3>'
+      },
+      {
+        type: 'code',
+        language: 'text',
+        value: `Try different approaches:
+
+"Rebuild using Tailwind instead of MUI"
+"Add animations on scroll"
+"Create dark mode toggle"
+"Add grid/list view switcher"
+"Implement infinite scroll"`
+      },
+      {
+        type: 'text',
+        value: '<h3>🔥 Advanced: Multi-Agent Parallelization</h3>'
+      },
+      {
+        type: 'code',
+        language: 'text',
+        value: `Open 3 Cursor chat windows simultaneously:
+
+Agent 1: "Improve DeviceCard styling and animations"
+Agent 2: "Enhance FilterPanel with more options"
+Agent 3: "Add sorting (price, rating, name)"
+
+All agents work in parallel!`
+      },
+      {
+        type: 'callout',
+        variant: 'success',
+        title: '🎉 Congratulations!',
+        value: 'You\'ve built a complete device gallery from Figma using Cursor AI! This demonstrates the power of combining Figma MCP with AI-assisted development.'
+      },
+      {
+        type: 'text',
+        value: '<h3>💡 Key Takeaways</h3>'
       },
       {
         type: 'list',
         items: [
-          'Introduce a small bug in your gallery',
-          'Ask Cursor to identify and fix it',
-          'Watch it analyze and suggest solutions'
+          '✅ Start small, then combine components',
+          '✅ Use Figma links for design context',
+          '✅ ASK mode to understand, PLAN for strategy, AGENT to build, DEBUG to fix',
+          '✅ Always review AI code',
+          '✅ Break big tasks into small steps',
+          '✅ Iterate and refine continuously'
         ]
-      },
+      }
     ]
   },
   {
     id: 'advanced',
     title: 'Advanced Topics',
     subtitle: 'Personas & Commands',
-    duration: '15 min (Optional)',
+    duration: '30 min (Optional)',
     content: [
       {
-        type: 'text',
-        value: '<h3>🎭 Creating Custom Personas</h3>'
-      },
-      {
-        type: 'code',
-        title: 'Developer Persona',
-        language: 'text',
-        value: `"Create a persona called 'Senior Developer' that:
-- Writes clean, production-ready code
-- Follows best practices and design patterns
-- Implements features efficiently
-- Focuses on functionality and performance"
-
-Then use: @senior-developer "Implement user authentication"`
-      },
-      {
-        type: 'code',
-        title: 'Code Reviewer Persona',
-        language: 'text',
-        value: `"Create a persona called 'Code Reviewer' that:
-- Reviews code critically for issues
-- Checks for bugs, security vulnerabilities
-- Ensures best practices are followed
-- Suggests improvements and optimizations"
-
-Then use: @code-reviewer "Review this authentication code"`
+        type: 'callout',
+        variant: 'info',
+        title: '🎯 Your Turn to Design!',
+        value: 'Now that you\'ve learned the basics, it\'s time to customize Cursor for YOUR workflow. Think about what would make YOU more productive.'
       },
       {
         type: 'text',
-        value: '<h3>⚡ The Dev-Review Loop Command</h3>'
+        value: '<h3>🎭 Challenge 1: Create a Custom Persona</h3>'
       },
       {
-        type: 'code',
-        title: 'Automated Quality Assurance',
-        language: 'text',
-        value: `"Create a custom command called '/dev-review-loop' that:
-
-1. Switch to @senior-developer persona
-2. Develop the feature based on the request
-3. Switch to @code-reviewer persona
-4. Review the code thoroughly
-5. If issues found: fix and review again
-6. Repeat until no more issues
-7. Provide final summary
-
-Usage: /dev-review-loop "Create a login form with validation"`
+        type: 'text',
+        value: '<h4>Think About:</h4>'
+      },
+      {
+        type: 'list',
+        items: [
+          'What expertise do you need most often in your work?',
+          'What type of code review would help you most?',
+          'What domain knowledge would be valuable? (e.g., E-commerce, Healthcare, Finance)',
+          'What role perspective would improve your code? (Tech Lead, DevOps, UX Designer)'
+        ]
+      },
+      {
+        type: 'text',
+        value: '<h4>Your Mission:</h4>'
+      },
+      {
+        type: 'text',
+        value: '<p><strong>Ask Cursor to create a persona that matches YOUR needs.</strong> Consider:</p>'
+      },
+      {
+        type: 'list',
+        items: [
+          'What should this persona know?',
+          'What should it focus on?',
+          'How should it review/suggest code?',
+          'What standards should it enforce?'
+        ]
       },
       {
         type: 'callout',
         variant: 'success',
-        title: 'Benefits',
-        value: 'Automated QA, catch bugs early, improve code quality iteratively, save time on reviews'
+        title: '💡 Example Mission (if you need inspiration)',
+        value: 'Create a "Senior Developer" persona that writes clean production code, follows best practices, and focuses on performance. OR create a "Code Reviewer" persona that checks for bugs, security issues, and suggests optimizations. But try to think of YOUR OWN first!'
+      },
+      {
+        type: 'text',
+        value: '<h3>⚡ Challenge 2: Design an Automated Workflow Command</h3>'
+      },
+      {
+        type: 'text',
+        value: '<h4>Think About Your Daily Workflow:</h4>'
+      },
+      {
+        type: 'list',
+        items: [
+          'What repetitive tasks do you do every day?',
+          'What steps do you always follow when creating something?',
+          'How do you ensure quality before committing code?',
+          'What checks do you wish happened automatically?'
+        ]
+      },
+      {
+        type: 'text',
+        value: '<h4>Your Mission:</h4>'
+      },
+      {
+        type: 'text',
+        value: '<p><strong>Design a command that automates a multi-step workflow.</strong></p><p>Think about:</p>'
+      },
+      {
+        type: 'list',
+        items: [
+          'What are the steps in your workflow?',
+          'Which personas should be involved at each step?',
+          'What should happen if issues are found?',
+          'Should it iterate until perfect, or just give feedback?',
+          'What should the final output be?'
+        ]
+      },
+      {
+        type: 'callout',
+        variant: 'success',
+        title: '💡 Example Workflow (if you need inspiration)',
+        value: 'The "/dev-review-loop" - A command that: 1) Developer persona builds the feature, 2) Reviewer persona reviews it, 3) If issues found, Developer fixes them, 4) Reviewer checks again, 5) Repeats until no issues, 6) Provides summary. But what workflow would help YOU most?'
+      },
+      {
+        type: 'text',
+        value: '<h3>🚀 Now Build It!</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>Once you\'ve designed your persona or command:</p>'
+      },
+      {
+        type: 'list',
+        items: [
+          '<strong>Explain it to Cursor</strong> - Describe what you want in natural language',
+          '<strong>Ask Cursor to create it</strong> - Let AI build the persona/command for you',
+          '<strong>Test it</strong> - Try using it on a real task',
+          '<strong>Refine it</strong> - Adjust based on results',
+          '<strong>Share with the group!</strong> - Show others your creative solution'
+        ]
+      },
+      {
+        type: 'text',
+        value: '<h3>💭 More Ideas to Spark Your Creativity</h3>'
+      },
+      {
+        type: 'text',
+        value: '<h4>Persona Ideas:</h4>'
+      },
+      {
+        type: 'list',
+        items: [
+          'Framework Expert (Harmony2, React, Angular)',
+          'Security Auditor',
+          'Performance Optimizer',
+          'Accessibility Champion',
+          'Test Engineer',
+          'Documentation Writer',
+          'DevOps Engineer',
+          'Database Architect'
+        ]
+      },
+      {
+        type: 'text',
+        value: '<h4>Command Ideas:</h4>'
+      },
+      {
+        type: 'list',
+        items: [
+          '/feature-complete - Build, test, document, review',
+          '/refactor-safe - Refactor with tests to ensure no breaking changes',
+          '/security-audit - Comprehensive security review',
+          '/performance-boost - Analyze and optimize performance',
+          '/bug-hunt - Deep dive to find potential issues',
+          '/prod-ready - Full production readiness checklist'
+        ]
+      },
+      {
+        type: 'callout',
+        variant: 'warning',
+        title: '🎯 The Goal',
+        value: 'The best personas and commands are the ones YOU design for YOUR workflow. Don\'t just copy examples - think about what would actually make you more productive!'
+      },
+      {
+        type: 'text',
+        value: '<h3>⏰ Time to Experiment!</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>Spend the next 30 minutes:</p>'
+      },
+      {
+        type: 'list',
+        items: [
+          '1. Think about what would help YOUR workflow most',
+          '2. Design either a persona OR a command (or both if time permits)',
+          '3. Ask Cursor to create it',
+          '4. Test it on a real example',
+          '5. Share your creation with others'
+        ]
       }
     ]
   },
