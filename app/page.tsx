@@ -1,7 +1,7 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { ChevronRight, ChevronLeft, Copy, Check, Menu, X } from 'lucide-react'
+import { ChevronRight, ChevronLeft, Check, Menu, X } from 'lucide-react'
 import { labSections } from './data/lab-content'
 import CodeBlock from './components/CodeBlock'
 import CheckboxTask from './components/CheckboxTask'
@@ -180,7 +180,7 @@ export default function Home() {
                   {content.type === 'text' && content.value && (
                     <div className="markdown" dangerouslySetInnerHTML={{ __html: content.value }} />
                   )}
-                  
+
                   {content.type === 'list' && (
                     <ul className="space-y-2 list-disc list-inside">
                       {content.items?.map((item, i) => (
@@ -206,7 +206,7 @@ export default function Home() {
                         : 'bg-blue-50 dark:bg-blue-900/20 border-blue-500'
                     }`}>
                       <p className="font-medium mb-1">{content.title}</p>
-                      <p className="text-sm">{content.value}</p>
+                      <p className="text-sm" dangerouslySetInnerHTML={{ __html: content.value }} />
                     </div>
                   )}
 
@@ -245,7 +245,7 @@ export default function Home() {
                 <ChevronLeft size={20} />
                 Previous
               </button>
-              
+
               <button
                 onClick={() => setCurrentSection(Math.min(labSections.length - 1, currentSection + 1))}
                 disabled={currentSection === labSections.length - 1}

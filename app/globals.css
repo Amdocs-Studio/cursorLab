@@ -66,7 +66,7 @@ code {
 }
 
 .markdown a {
-  @apply text-primary hover:underline;
+  @apply text-blue-600 dark:text-blue-400 hover:underline underline;
 }
 
 .markdown strong {
@@ -75,5 +75,10 @@ code {
 
 .markdown blockquote {
   @apply border-l-4 border-gray-300 pl-4 italic my-4;
+}
+
+/* Links in all contexts (callouts, text, etc) */
+a {
+  @apply text-blue-600 dark:text-blue-400 hover:underline underline cursor-pointer;
 }
 
