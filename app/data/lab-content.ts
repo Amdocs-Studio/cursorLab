@@ -58,10 +58,14 @@ export const labSections: LabSection[] = [
         type: 'list',
         items: [
           'Cursor Basics (Interface & Settings)',
+          'Context & Tagging (Files, Code, @Browser)',
           'Harmony2 Project Setup',
-          'Customization (Docs & Rules)',
-          'Device Gallery with Figma',
-          'Advanced Topics (Personas & Commands)'
+          'Docs Integration (Framework Documentation)',
+          'Rules (Custom Coding Standards)',
+          'Figma MCP Setup',
+          'Device Gallery with Figma (3 Parts)',
+          'Advanced Topics (Personas & Commands)',
+          'Super Advanced Challenge (Build Your Dream)'
         ]
       },
     ]
