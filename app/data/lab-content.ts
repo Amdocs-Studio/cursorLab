@@ -39,12 +39,6 @@ export const labSections: LabSection[] = [
         value: '<p>Today you\'ll learn Cursor by actually using it!</p>'
       },
       {
-        type: 'callout',
-        variant: 'info',
-        title: 'Note',
-        value: 'Part 1 (Overview) will be presented live from <a href="https://illin7809:9999/dev" target="_blank">https://illin7809:9999/dev</a>'
-      },
-      {
         type: 'text',
         value: '<h3>What We\'ll Do:</h3>'
       },
@@ -270,6 +264,7 @@ Put these in .cursor/rules"`
         items: [
           'Download from: <a href="https://www.figma.com/downloads/" target="_blank">https://www.figma.com/downloads/</a>',
           'Install and sign in',
+          'Activate the MCP Server option',
           'Keep app running in background'
         ]
       },
@@ -314,7 +309,7 @@ Put these in .cursor/rules"`
     content: [
       {
         type: 'text',
-        value: '<h3>Step 1: Connect Cursor to Figma Design (5 min)</h3>'
+        value: '<h3>Step 1: Connect Cursor to Figma Design</h3>'
       },
       {
         type: 'text',
@@ -337,7 +332,7 @@ Please analyze the design and tell me what components you see."`
       },
       {
         type: 'text',
-        value: '<h3>Step 2: Start Small - Build Device Card (10 min)</h3>'
+        value: '<h3>Step 2: Start Small - Build Device Card</h3>'
       },
       {
         type: 'text',
@@ -370,7 +365,7 @@ What are the key visual elements?"`
       },
       {
         type: 'text',
-        value: '<h3>Step 3: Build Filter Panel (10 min)</h3>'
+        value: '<h3>Step 3: Build Filter Panel</h3>'
       },
       {
         type: 'code',
@@ -385,7 +380,7 @@ What are the key visual elements?"`
       },
       {
         type: 'text',
-        value: '<h3>Step 4: Build Search Bar (5 min)</h3>'
+        value: '<h3>Step 4: Build Search Bar</h3>'
       },
       {
         type: 'code',
@@ -399,7 +394,70 @@ What are the key visual elements?"`
       },
       {
         type: 'text',
-        value: '<h3>Step 5: Combine Everything - Main Gallery (15 min)</h3>'
+        value: '<h3>Step 5: Create Mock Data System</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>Before building the main gallery, we need proper mock data. HarmonyOS already has a built-in mock system!</p>'
+      },
+      {
+        type: 'callout',
+        variant: 'info',
+        title: '💡 Tip: Use Built-in Mock Systems',
+        value: 'Many frameworks have built-in mocking capabilities. Ask Cursor about what your framework provides!'
+      },
+      {
+        type: 'code',
+        title: '🔹 ASK Mode - Understand Mock System',
+        language: 'text',
+        value: `"What mock/testing system does HarmonyOS provide?
+How can I create mock data handlers for my device gallery?"`
+      },
+      {
+        type: 'text',
+        value: '<p>After understanding the mock system, ask Cursor to analyze your page structure first:</p>'
+      },
+      {
+        type: 'code',
+        title: '🔹 PLAN Mode - Analyze Structure',
+        language: 'text',
+        value: `"Analyze the DeviceGallery page structure and data requirements:
+- What data models do we need?
+- What API endpoints should we mock?
+- What properties does each device need?
+- How should the data be structured?
+
+Give me a detailed breakdown."`
+      },
+      {
+        type: 'text',
+        value: '<p>Now create the mock handlers:</p>'
+      },
+      {
+        type: 'code',
+        title: '🔹 AGENT Mode - Build Mock System',
+        language: 'text',
+        value: `"Create a proper mock data handler for the DeviceGallery:
+- Use HarmonyOS built-in mock system
+- Include realistic device data (phones, tablets, laptops)
+- Mock API endpoints for:
+  * GET /api/devices (all devices)
+  * GET /api/devices/:id (single device)
+  * GET /api/brands (available brands)
+  * GET /api/categories (device categories)
+- Include properties: id, name, brand, category, specs, price, rating, image
+- Add 15-20 sample devices with variety
+- Support query parameters for filtering/search"`
+      },
+      {
+        type: 'callout',
+        variant: 'success',
+        title: '✅ Why This Matters',
+        value: 'Proper mocking lets you develop without a backend, test different scenarios, and makes your code more maintainable.'
+      },
+      {
+        type: 'text',
+        value: '<h3>Step 6: Combine Everything - Main Gallery</h3>'
       },
       {
         type: 'code',
@@ -408,7 +466,7 @@ What are the key visual elements?"`
         value: `"Plan DeviceGallery component that:
 1. Uses DeviceCard, FilterPanel, SearchBar
 2. Manages state for filters/search
-3. Fetches device data
+3. Fetches device data from mock API
 4. Implements filtering logic
 5. Has responsive grid layout
 
@@ -422,15 +480,15 @@ Give me a step-by-step plan."`
 https://www.figma.com/design/9dCGGaBPPd9Ix4nlLm5JAA/Cursor-workshop?node-id=0-1
 
 - Use our DeviceCard, FilterPanel, SearchBar
+- Connect to mock API endpoints
 - State management for filters/search
 - Responsive grid (1 col mobile, 2 tablet, 3 desktop)
-- Sample device data
 - Filtering and search logic
 - Match exact Figma layout"`
       },
       {
         type: 'text',
-        value: '<h3>Step 6: Add Interactivity (10 min)</h3>'
+        value: '<h3>Step 7: Add Interactivity</h3>'
       },
       {
         type: 'code',
@@ -444,7 +502,7 @@ https://www.figma.com/design/9dCGGaBPPd9Ix4nlLm5JAA/Cursor-workshop?node-id=0-1
       },
       {
         type: 'text',
-        value: '<h3>Step 7: Debug & Fix (5 min)</h3>'
+        value: '<h3>Step 8: Debug & Fix</h3>'
       },
       {
         type: 'code',

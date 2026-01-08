@@ -9,7 +9,21 @@ import CheckboxTask from './components/CheckboxTask'
 export default function Home() {
   const [currentSection, setCurrentSection] = useState(0)
   const [completedTasks, setCompletedTasks] = useState<Record<string, boolean>>({})
-  const [sidebarOpen, setSidebarOpen] = useState(true)
+  const [sidebarOpen, setSidebarOpen] = useState(false)
+
+  // Set sidebar open by default on desktop, closed on mobile
+  useEffect(() => {
+    const handleResize = () => {
+      setSidebarOpen(window.innerWidth >= 1024)
+    }
+    
+    // Set initial state
+    handleResize()
+    
+    // Listen for resize events
+    window.addEventListener('resize', handleResize)
+    return () => window.removeEventListener('resize', handleResize)
+  }, [])
 
   // Load progress from localStorage
   useEffect(() => {
@@ -40,30 +54,30 @@ export default function Home() {
   const progress = (currentSection / (labSections.length - 1)) * 100
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 overflow-x-hidden">
       {/* Header */}
-      <header className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+      <header className="bg-white dark:bg-gray-900 shadow-sm border-b border-gray-200 dark:border-gray-800 sticky top-0 z-50 w-full">
+        <div className="w-full px-4 sm:px-6 lg:px-8 py-4">
+          <div className="flex items-center justify-between gap-2 sm:gap-4">
+            <div className="flex items-center gap-2 sm:gap-4 min-w-0">
               <button
                 onClick={() => setSidebarOpen(!sidebarOpen)}
-                className="lg:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                className="lg:hidden p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg flex-shrink-0"
               >
                 {sidebarOpen ? <X size={24} /> : <Menu size={24} />}
               </button>
-              <div>
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              <div className="min-w-0">
+                <h1 className="text-lg sm:text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent truncate">
                   Cursor Workshop
                 </h1>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Hands-On Lab Guide</p>
+                <p className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 hidden sm:block">Hands-On Lab Guide</p>
               </div>
             </div>
-            <div className="text-right">
-              <div className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                Section {currentSection + 1} of {labSections.length}
+            <div className="text-right flex-shrink-0">
+              <div className="text-xs sm:text-sm font-medium text-gray-700 dark:text-gray-300 whitespace-nowrap">
+                {currentSection + 1}/{labSections.length}
               </div>
-              <div className="w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-1 overflow-hidden">
+              <div className="w-16 sm:w-32 h-2 bg-gray-200 dark:bg-gray-700 rounded-full mt-1 overflow-hidden">
                 <div
                   className="h-full bg-gradient-to-r from-primary to-secondary transition-all duration-300"
                   style={{ width: `${progress}%` }}
@@ -138,8 +152,8 @@ export default function Home() {
         </aside>
 
         {/* Main Content */}
-        <main className="flex-1 px-4 sm:px-6 lg:px-8 py-8 max-w-4xl mx-auto">
-          <article className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-8">
+        <main className="flex-1 w-full px-4 sm:px-6 lg:px-8 py-8 max-w-4xl mx-auto overflow-x-hidden">
+          <article className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-4 sm:p-8 w-full max-w-full overflow-x-hidden">
             {/* Section Header */}
             <div className="mb-8">
               <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-2">
@@ -147,9 +161,9 @@ export default function Home() {
                 <span>•</span>
                 <span>{section.duration}</span>
               </div>
-              <h2 className="text-4xl font-bold mb-4">{section.title}</h2>
+              <h2 className="text-3xl sm:text-4xl font-bold mb-4">{section.title}</h2>
               {section.subtitle && (
-                <p className="text-xl text-gray-600 dark:text-gray-400">{section.subtitle}</p>
+                <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400">{section.subtitle}</p>
               )}
             </div>
 
