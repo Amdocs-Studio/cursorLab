@@ -1060,10 +1060,10 @@ All agents work in parallel!`
         type: 'list',
         items: [
           'Your company\'s internal APIs or databases',
-          'Project management tools (Jira, Monday, Asana)',
+          'Project management tools (Jira, Octane)',
           'Analytics platforms (Google Analytics, Mixpanel)',
           'CI/CD systems (Jenkins, GitHub Actions)',
-          'Documentation sites (Confluence, Notion)',
+          'Documentation sites (Confluence, Solution book)',
           'Monitoring tools (New Relic, DataDog)',
           'Custom business logic or calculations',
           'Your own creative idea!'
