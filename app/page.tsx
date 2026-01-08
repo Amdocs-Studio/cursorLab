@@ -50,6 +50,12 @@ export default function Home() {
     }))
   }
 
+  const handleSectionChange = (newSection: number) => {
+    setCurrentSection(newSection)
+    // Smooth scroll to top
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   const section = labSections[currentSection]
   const progress = (currentSection / (labSections.length - 1)) * 100
 
@@ -107,7 +113,7 @@ export default function Home() {
                   <button
                     key={idx}
                     onClick={() => {
-                      setCurrentSection(idx)
+                      handleSectionChange(idx)
                       setSidebarOpen(false)
                     }}
                     className={`w-full text-left px-4 py-3 rounded-lg transition-all ${
@@ -252,7 +258,7 @@ export default function Home() {
             {/* Navigation */}
             <div className="flex justify-between items-center mt-12 pt-8 border-t border-gray-200 dark:border-gray-800">
               <button
-                onClick={() => setCurrentSection(Math.max(0, currentSection - 1))}
+                onClick={() => handleSectionChange(Math.max(0, currentSection - 1))}
                 disabled={currentSection === 0}
                 className="flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700"
               >
@@ -261,7 +267,7 @@ export default function Home() {
               </button>
 
               <button
-                onClick={() => setCurrentSection(Math.min(labSections.length - 1, currentSection + 1))}
+                onClick={() => handleSectionChange(Math.min(labSections.length - 1, currentSection + 1))}
                 disabled={currentSection === labSections.length - 1}
                 className="flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all disabled:opacity-50 disabled:cursor-not-allowed bg-gradient-to-r from-primary to-secondary text-white hover:shadow-lg"
               >

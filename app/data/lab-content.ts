@@ -67,6 +67,45 @@ export const labSections: LabSection[] = [
     ]
   },
   {
+    id: 'skip-to-advanced',
+    title: 'Already Familiar with Cursor?',
+    subtitle: 'Fast Track Option',
+    duration: '2 min',
+    content: [
+      {
+        type: 'callout',
+        variant: 'warning',
+        title: '⚡ For Advanced Users',
+        value: 'Think you already know this stuff? We recommend spending 10 minutes reviewing the basics anyway - you might be surprised by what you learn!'
+      },
+      {
+        type: 'text',
+        value: '<h3>But if the lab feels too simple...</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>You can jump directly to the advanced sections where you\'ll tackle more complex challenges:</p>'
+      },
+      {
+        type: 'list',
+        items: [
+          '🎭 <strong>Advanced Topics</strong>: Create custom personas, slash commands, and workflows',
+          '🚀 <strong>Super Advanced</strong>: Build and deploy your own MCP server, create custom integrations, push the limits'
+        ]
+      },
+      {
+        type: 'callout',
+        variant: 'success',
+        title: '💡 Quick Tip',
+        value: 'Even if you skip ahead, bookmark this lab - the Device Gallery section has great Figma MCP examples you can reference later!'
+      },
+      {
+        type: 'text',
+        value: '<p><strong>Ready to jump ahead?</strong> Use the sidebar on the left to navigate to "Advanced Topics" and then "Super Advanced Challenge".</p>'
+      }
+    ]
+  },
+  {
     id: 'basics',
     title: 'Cursor Basics',
     subtitle: 'Interface & Settings',
@@ -97,21 +136,146 @@ export const labSections: LabSection[] = [
     ]
   },
   {
+    id: 'context-tagging',
+    title: 'Context & Tagging',
+    subtitle: 'Give Cursor the Right Information',
+    duration: '10 min',
+    tasks: [
+      { id: 'task-context-1', label: 'Try using @ to tag a file' },
+      { id: 'task-context-2', label: 'Select code and "Add to Chat"' },
+      { id: 'task-context-3', label: 'Copy console error and add to chat' },
+      { id: 'task-context-4', label: 'Tag @Browser and ask a question' },
+      { id: 'task-context-5', label: 'Open Browser tab in Cursor' },
+    ],
+    content: [
+      {
+        type: 'text',
+        value: '<h3>📎 Tagging Files with @</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>Use <code>@</code> in chat to tag specific files and give Cursor context:</p>'
+      },
+      {
+        type: 'list',
+        items: [
+          'Type <code>@</code> in chat to see available files',
+          'Start typing filename to filter',
+          'Select file(s) to include in conversation',
+          'Cursor will read and understand the file content'
+        ]
+      },
+      {
+        type: 'code',
+        title: 'Example',
+        language: 'text',
+        value: `"@App.tsx - Review this component for performance issues"`
+      },
+      {
+        type: 'text',
+        value: '<h3>✂️ Select Code & "Add to Chat"</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>Give Cursor specific code context:</p>'
+      },
+      {
+        type: 'list',
+        items: [
+          'Select any code in your editor',
+          'Right-click → "Add to Chat" (or use keyboard shortcut)',
+          'The selected code is automatically included in the chat',
+          'Ask questions specifically about that code'
+        ]
+      },
+      {
+        type: 'callout',
+        variant: 'info',
+        title: '💡 Pro Tip: Console Errors',
+        value: 'Copy console errors or terminal output and paste into chat! Cursor can analyze errors and suggest fixes.'
+      },
+      {
+        type: 'text',
+        value: '<h3>🌐 Tag @Browser for Visual Context</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>Give Cursor visual context of your running app:</p>'
+      },
+      {
+        type: 'list',
+        items: [
+          'Type <code>@Browser</code> in chat',
+          'Cursor takes a screenshot of your app',
+          'Ask about UI issues, layout problems, styling',
+          'Example: "@Browser - Why is the header overlapping the content?"'
+        ]
+      },
+      {
+        type: 'text',
+        value: '<h3>🔍 Open Browser Tab in Cursor</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>Interact with your app directly from Cursor:</p>'
+      },
+      {
+        type: 'list',
+        items: [
+          'Open Browser tab in Cursor (look for Browser icon)',
+          'Navigate to your running app (e.g., localhost:3000)',
+          'Click "Select Element" to inspect specific UI elements',
+          'Selected elements get added to chat automatically',
+          'Great for debugging layout, styling, or functionality issues'
+        ]
+      },
+      {
+        type: 'callout',
+        variant: 'success',
+        title: '✅ Why This Matters',
+        value: 'The more context you give Cursor (files, code, errors, visuals), the better and more accurate its responses will be!'
+      },
+      {
+        type: 'text',
+        value: '<h3>🎯 Practice Exercise</h3>'
+      },
+      {
+        type: 'code',
+        title: 'Try This',
+        language: 'text',
+        value: `1. Start your dev server
+2. Open Browser in Cursor
+3. Navigate to your app
+4. Select an element (button, header, etc.)
+5. Ask: "How can I improve this component's accessibility?"
+6. Watch Cursor analyze the visual + code together!`
+      }
+    ]
+  },
+  {
     id: 'harmony2',
     title: 'Harmony2 Setup',
     subtitle: 'Create Your Project',
     duration: '20 min',
     content: [
       {
+        type: 'callout',
+        variant: 'info',
+        title: '📦 Don\'t Have npm?',
+        value: 'If you don\'t have npm installed, ask Cursor: "How do I install npm on my system?" - Cursor will guide you through the installation process.'
+      },
+      {
+        type: 'callout',
+        variant: 'warning',
+        title: '🔧 Behind Corporate Proxy?',
+        value: 'If you\'re behind a corporate proxy (like Amdocs), ask Cursor to configure your <code>.npmrc</code> file with:<br><code>proxy=http://genproxy.amdocs.com:8080/</code><br><code>https-proxy=http://genproxy.amdocs.com:8080/</code>'
+      },
+      {
         type: 'steps',
         steps: [
           {
-            title: 'Install Harmony2',
-            code: 'npm install -g harmony2@latest',
-            language: 'bash'
-          },
-          {
             title: 'Create Project',
+            description: 'npx will automatically install Harmony2 if needed',
             code: 'npx harmony2@latest create',
             language: 'bash'
           },
@@ -228,10 +392,6 @@ Put these in .cursor/rules"`
       {
         type: 'steps',
         steps: [
-          {
-            title: 'Get Figma Token',
-            description: 'Go to Figma → Settings → Account → Personal Access Tokens → Create new token'
-          },
           {
             title: 'Configure MCP in Cursor',
             description: 'Open Cursor Settings (Ctrl+Shift+J) → Find "MCP" section',
@@ -501,17 +661,45 @@ https://www.figma.com/design/9dCGGaBPPd9Ix4nlLm5JAA/Cursor-workshop?node-id=0-1
 - Smooth animations"`
       },
       {
+        type: 'callout',
+        variant: 'info',
+        title: '🌐 Use Browser Tab to Test!',
+        value: 'Open the Browser tab in Cursor, navigate to your gallery, and interact with it. Use "Select Element" to pick specific components, then ask Cursor to improve them. Example: Select a device card → "@Browser - Make this card more visually appealing with better shadows and hover effects"'
+      },
+      {
         type: 'text',
-        value: '<h3>Step 8: Debug & Fix</h3>'
+        value: '<h3>Step 8: Debug & Fix with Visual Context</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>Use Browser + @Browser tagging for visual debugging:</p>'
+      },
+      {
+        type: 'list',
+        items: [
+          '1. Open Browser tab in Cursor',
+          '2. Navigate to your gallery',
+          '3. If you see a visual bug, use @Browser in chat',
+          '4. Copy any console errors and paste into chat',
+          '5. Select problematic elements and add to chat',
+          '6. Ask Cursor to fix with full context'
+        ]
       },
       {
         type: 'code',
-        title: '🔹 DEBUG Mode',
+        title: '🔹 Example: Visual Debugging',
         language: 'text',
-        value: `If issues arise:
-"The layout breaks on mobile - debug and fix"
-"Filtering not working - find and fix bug"
-"Colors don't match Figma - analyze and correct"`
+        value: `"@Browser - The filter panel is not aligned properly on mobile.
+Also, here's the console error I'm seeing:
+[paste error here]
+
+Please fix both issues."`
+      },
+      {
+        type: 'callout',
+        variant: 'success',
+        title: '💡 Pro Tip',
+        value: 'Combining @Browser screenshots + console errors + selected code gives Cursor complete context for faster, more accurate fixes!'
       },
     ]
   },
@@ -522,12 +710,50 @@ https://www.figma.com/design/9dCGGaBPPd9Ix4nlLm5JAA/Cursor-workshop?node-id=0-1
     duration: '15 min',
     content: [
       {
+        type: 'callout',
+        variant: 'info',
+        title: '💡 These Are Examples!',
+        value: 'The prompts below are examples to inspire you. Write your own prompts based on YOUR specific needs and requirements. Experiment and find what works best for you!'
+      },
+      {
         type: 'text',
-        value: '<h3>Make It Production-Ready</h3>'
+        value: '<h3>Step 1: Review the Complete Page</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>Before polishing, ask Cursor to review everything you\'ve built:</p>'
       },
       {
         type: 'code',
-        title: 'Accessibility',
+        title: '🔹 ASK Mode - Comprehensive Review',
+        language: 'text',
+        value: `"Review the entire DeviceGallery page:
+- Check code quality and best practices
+- Identify potential bugs or issues
+- Suggest improvements for performance
+- Review component structure
+- Check accessibility concerns
+- Verify responsive design
+
+Give me a detailed analysis with priorities."`
+      },
+      {
+        type: 'callout',
+        variant: 'success',
+        title: '✅ Why Review First',
+        value: 'Get a comprehensive analysis before diving into specific improvements. This helps you prioritize what matters most.'
+      },
+      {
+        type: 'text',
+        value: '<h3>Step 2: Make It Production-Ready</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>Now tackle the improvements based on your review. Here are example prompts - write your own based on what you need:</p>'
+      },
+      {
+        type: 'code',
+        title: 'Example: Accessibility',
         language: 'text',
         value: `"Make the gallery fully accessible:
 - Add proper ARIA labels
@@ -537,7 +763,7 @@ https://www.figma.com/design/9dCGGaBPPd9Ix4nlLm5JAA/Cursor-workshop?node-id=0-1
       },
       {
         type: 'code',
-        title: 'Performance',
+        title: 'Example: Performance',
         language: 'text',
         value: `"Optimize performance:
 - Lazy load images
@@ -547,7 +773,7 @@ https://www.figma.com/design/9dCGGaBPPd9Ix4nlLm5JAA/Cursor-workshop?node-id=0-1
       },
       {
         type: 'code',
-        title: 'Testing',
+        title: 'Example: Testing',
         language: 'text',
         value: `"Generate tests for:
 - DeviceCard component
@@ -559,10 +785,15 @@ Use React Testing Library."`
       },
       {
         type: 'text',
-        value: '<h3>🎨 Experiment!</h3>'
+        value: '<h3>🎨 Step 3: Experiment with Your Ideas!</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>Now it\'s your turn! Try your own ideas. Here are some examples to inspire you:</p>'
       },
       {
         type: 'code',
+        title: 'Example Ideas',
         language: 'text',
         value: `Try different approaches:
 
@@ -570,7 +801,9 @@ Use React Testing Library."`
 "Add animations on scroll"
 "Create dark mode toggle"
 "Add grid/list view switcher"
-"Implement infinite scroll"`
+"Implement infinite scroll"
+
+Write your own prompts for features YOU want!`
       },
       {
         type: 'text',
@@ -780,6 +1013,199 @@ All agents work in parallel!`
           '4. Test it on a real example',
           '5. Share your creation with others'
         ]
+      }
+    ]
+  },
+  {
+    id: 'super-advanced',
+    title: 'Super Advanced Challenge',
+    subtitle: 'Live Your Dream - Build Something Amazing',
+    duration: '60+ min (Open-ended)',
+    content: [
+      {
+        type: 'callout',
+        variant: 'success',
+        title: '🚀 This Is Where You Break Free',
+        value: 'No more guided steps. No more examples. It\'s time to build what YOU truly want to create. Think big, think bold, think game-changing!'
+      },
+      {
+        type: 'text',
+        value: '<h3>💭 What Do You Want to Achieve?</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>Take a moment and think deeply:</p>'
+      },
+      {
+        type: 'list',
+        items: [
+          'What tool would make your daily work 10x easier?',
+          'What integration is missing in your workflow?',
+          'What data source do you wish Cursor could access?',
+          'What automation would save you hours each week?',
+          'What would make your team more productive?'
+        ]
+      },
+      {
+        type: 'text',
+        value: '<h3>🎯 Challenge Ideas (Just to Inspire You)</h3>'
+      },
+      {
+        type: 'text',
+        value: '<h4>💡 Create Your Own MCP Server</h4>'
+      },
+      {
+        type: 'text',
+        value: '<p>MCP servers let Cursor access any data source or API. Build one that connects to:</p>'
+      },
+      {
+        type: 'list',
+        items: [
+          'Your company\'s internal APIs or databases',
+          'Project management tools (Jira, Monday, Asana)',
+          'Analytics platforms (Google Analytics, Mixpanel)',
+          'CI/CD systems (Jenkins, GitHub Actions)',
+          'Documentation sites (Confluence, Notion)',
+          'Monitoring tools (New Relic, DataDog)',
+          'Custom business logic or calculations',
+          'Your own creative idea!'
+        ]
+      },
+      {
+        type: 'code',
+        title: 'Getting Started with MCP',
+        language: 'text',
+        value: `Ask Cursor:
+
+"I want to create an MCP server that connects to [YOUR SERVICE].
+Walk me through:
+1. MCP server architecture and requirements
+2. How to implement the server in TypeScript/Python
+3. How to handle authentication
+4. How to expose data to Cursor
+5. How to test it locally
+6. How to deploy it"
+
+Then start building!`
+      },
+      {
+        type: 'text',
+        value: '<h4>🌐 Deploy to the Cloud</h4>'
+      },
+      {
+        type: 'text',
+        value: '<p>Once you\'ve built something, deploy it! Free hosting options:</p>'
+      },
+      {
+        type: 'list',
+        items: [
+          '<strong>Vercel</strong>: Perfect for web apps, APIs, and serverless functions',
+          '<strong>Netlify</strong>: Great for static sites and serverless backends',
+          '<strong>Railway</strong>: Easy deployment for Node.js services',
+          '<strong>Render</strong>: Free tier for web services and databases',
+          '<strong>Cloudflare Workers</strong>: Serverless edge computing',
+          '<strong>AWS Lambda</strong>: Serverless functions (free tier available)'
+        ]
+      },
+      {
+        type: 'code',
+        title: 'Deploy to Vercel Example',
+        language: 'text',
+        value: `Ask Cursor:
+
+"Help me deploy my MCP server to Vercel:
+1. What changes do I need for Vercel deployment?
+2. Create vercel.json configuration
+3. Set up environment variables
+4. Configure serverless functions
+5. Guide me through the deployment process"
+
+Cursor + Vercel = Deployed in minutes!`
+      },
+      {
+        type: 'text',
+        value: '<h4>🔧 More Challenge Ideas</h4>'
+      },
+      {
+        type: 'list',
+        items: [
+          '<strong>AI-Powered Code Review Bot</strong>: Create a bot that reviews PRs using Cursor\'s AI',
+          '<strong>Custom Documentation Generator</strong>: Auto-generate docs from your codebase',
+          '<strong>Smart Test Generator</strong>: AI that writes comprehensive tests for your code',
+          '<strong>Performance Analyzer</strong>: Tool that analyzes and suggests optimizations',
+          '<strong>Migration Assistant</strong>: Help migrate between frameworks/libraries',
+          '<strong>Security Scanner</strong>: Custom security checks for your stack',
+          '<strong>Component Library Generator</strong>: Auto-create component library from designs',
+          '<strong>API Client Generator</strong>: Generate typed API clients from OpenAPI specs'
+        ]
+      },
+      {
+        type: 'callout',
+        variant: 'warning',
+        title: '⚡ Pro Approach',
+        value: 'Don\'t try to build everything at once! Start with MVP (Minimum Viable Product). Get it working with basic functionality, then iterate and improve. Ask Cursor to help you break down your big idea into small, achievable steps.'
+      },
+      {
+        type: 'text',
+        value: '<h3>🎯 Your Mission</h3>'
+      },
+      {
+        type: 'list',
+        items: [
+          '<strong>Step 1</strong>: Choose ONE ambitious goal that excites you',
+          '<strong>Step 2</strong>: Ask Cursor to help you plan it: "I want to build [YOUR IDEA]. Break this down into achievable milestones."',
+          '<strong>Step 3</strong>: Start with milestone 1 - use everything you\'ve learned (personas, rules, MCP, etc.)',
+          '<strong>Step 4</strong>: Build, test, iterate - use Cursor as your pair programmer',
+          '<strong>Step 5</strong>: Deploy it and make it real!',
+          '<strong>Step 6</strong>: Share what you built with others - inspire them!'
+        ]
+      },
+      {
+        type: 'callout',
+        variant: 'success',
+        title: '🌟 The Real Goal',
+        value: 'This isn\'t about completing an exercise. It\'s about proving to yourself that with Cursor, you can build ANYTHING you can imagine. The only limit is your ambition!'
+      },
+      {
+        type: 'text',
+        value: '<h3>💡 Tips for Success</h3>'
+      },
+      {
+        type: 'list',
+        items: [
+          'Start small, think big - MVP first, features later',
+          'Plan thoroughly before coding - think about the end product',
+          'Consult with Cursor to find gaps and validate your approach',
+          'Ask Cursor for improvement ideas and alternative solutions',
+          'Use @Browser to debug visual issues',
+          'Tag relevant files with @ for better context',
+          'Create custom personas for your specific domain',
+          'Don\'t hesitate to ask Cursor "how should I approach this?"',
+          'Iterate fast - build, test, refine, repeat',
+          'Document as you go - future you will thank you',
+          'If stuck, break the problem down smaller and tackle piece by piece'
+        ]
+      },
+      {
+        type: 'text',
+        value: '<h3>🚀 Ready to Start?</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>Open Cursor, take a deep breath, and ask:</p>'
+      },
+      {
+        type: 'code',
+        language: 'text',
+        value: `"I want to build [YOUR AMAZING IDEA]. 
+Help me turn this vision into reality.
+Let's start by breaking it down into steps."`
+      },
+      {
+        type: 'callout',
+        variant: 'info',
+        title: '💬 Share Your Journey',
+        value: 'As you build, share your progress with the group. Your challenges might help others, and their insights might help you. We\'re all learning together!'
       }
     ]
   },
