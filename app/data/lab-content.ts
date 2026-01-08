@@ -101,7 +101,7 @@ export const labSections: LabSection[] = [
       },
       {
         type: 'text',
-        value: '<p><strong>Ready to jump ahead?</strong> Use the sidebar on the left to navigate to "Advanced Topics" and then "Super Advanced Challenge".</p>'
+        value: '<p><strong>Ready to jump ahead?</strong> Use the sidebar on the left to navigate to <a href="#advanced">Advanced Topics</a> and then "Super Advanced Challenge".</p>'
       }
     ]
   },
@@ -243,7 +243,7 @@ export const labSections: LabSection[] = [
         type: 'code',
         title: 'Try This',
         language: 'text',
-        value: `1. Start your dev server
+        value: `1. Start your dev server (or for now, simply open any site in browser, even this 😊)
 2. Open Browser in Cursor
 3. Navigate to your app
 4. Select an element (button, header, etc.)
@@ -261,14 +261,8 @@ export const labSections: LabSection[] = [
       {
         type: 'callout',
         variant: 'info',
-        title: '📦 Don\'t Have npm?',
-        value: 'If you don\'t have npm installed, ask Cursor: "How do I install npm on my system?" - Cursor will guide you through the installation process.'
-      },
-      {
-        type: 'callout',
-        variant: 'warning',
-        title: '🔧 Behind Corporate Proxy?',
-        value: 'If you\'re behind a corporate proxy (like Amdocs), ask Cursor to configure your <code>.npmrc</code> file with:<br><code>proxy=http://genproxy.amdocs.com:8080/</code><br><code>https-proxy=http://genproxy.amdocs.com:8080/</code>'
+        title: '📦 Don\'t Have npm? Behind Corporate Proxy?',
+        value: '<strong>No npm installed?</strong> Ask Cursor: "How do I install npm on my system?" - Cursor will guide you through the installation process.<br>You can (try) asking him to install it for you<br><br><strong>.npmrc</strong><br>Ask Cursor to configure your <code>.npmrc</code> file with:<br><code>proxy=http://genproxy.amdocs.com:8080/</code><br><code>https-proxy=http://genproxy.amdocs.com:8080/</code>'
       },
       {
         type: 'steps',

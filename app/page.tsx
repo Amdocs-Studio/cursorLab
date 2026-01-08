@@ -25,13 +25,45 @@ export default function Home() {
     return () => window.removeEventListener('resize', handleResize)
   }, [])
 
+  // Load section from URL hash on initial load
+  useEffect(() => {
+    const hash = window.location.hash.slice(1) // Remove the #
+    if (hash) {
+      const sectionIndex = labSections.findIndex(section => section.id === hash)
+      if (sectionIndex !== -1) {
+        setCurrentSection(sectionIndex)
+        window.scrollTo({ top: 0, behavior: 'smooth' })
+      }
+    }
+  }, [])
+
+  // Listen for hash changes (when user clicks links with #)
+  useEffect(() => {
+    const handleHashChange = () => {
+      const hash = window.location.hash.slice(1)
+      if (hash) {
+        const sectionIndex = labSections.findIndex(section => section.id === hash)
+        if (sectionIndex !== -1) {
+          setCurrentSection(sectionIndex)
+          window.scrollTo({ top: 0, behavior: 'smooth' })
+        }
+      }
+    }
+
+    window.addEventListener('hashchange', handleHashChange)
+    return () => window.removeEventListener('hashchange', handleHashChange)
+  }, [])
+
   // Load progress from localStorage
   useEffect(() => {
     const saved = localStorage.getItem('lab-progress')
     if (saved) {
       const data = JSON.parse(saved)
       setCompletedTasks(data.completedTasks || {})
-      setCurrentSection(data.currentSection || 0)
+      // Only restore section if there's no hash in URL
+      if (!window.location.hash && data.currentSection !== undefined) {
+        setCurrentSection(data.currentSection)
+      }
     }
   }, [])
 
@@ -52,6 +84,9 @@ export default function Home() {
 
   const handleSectionChange = (newSection: number) => {
     setCurrentSection(newSection)
+    // Update URL hash
+    const sectionId = labSections[newSection].id
+    window.history.pushState(null, '', `#${sectionId}`)
     // Smooth scroll to top
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
