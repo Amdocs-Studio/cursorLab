@@ -974,6 +974,44 @@ All agents work in parallel!`
         ]
       },
       {
+        type: 'callout',
+        variant: 'info',
+        title: '🔌 Level Up: Integrate Personas with MCP Servers!',
+        value: 'Make your personas even more powerful by connecting them to real tools! Check out available MCP servers at <a href="http://indlin948:3001/" target="_blank">http://indlin948:3001/</a>'
+      },
+      {
+        type: 'text',
+        value: '<h4>🔥 Persona + MCP Integration Ideas:</h4>'
+      },
+      {
+        type: 'list',
+        items: [
+          '<strong>Developer Persona + Jira MCP</strong>: "Create a Senior Developer persona that can search Jira for related tickets, log work time, and update issue status while coding"',
+          '<strong>DevOps Persona + Jenkins + OpenShift MCPs</strong>: "Build a DevOps Engineer persona that triggers CI/CD builds, monitors deployments, and manages Helm charts"',
+          '<strong>QA Persona + Oracle DB MCP</strong>: "Design a Test Engineer persona that validates data in Oracle DB, runs test queries, and verifies database schema"',
+          '<strong>Solution Architect + Confluence MCP</strong>: "Create an Architect persona that searches Solution Books, retrieves design patterns, and references documentation"',
+          '<strong>Code Reviewer + Bitbucket / Perforce MCPs</strong>: "Build a Tech Lead persona that reviews code changes, checks for best practices, and validates against coding standards"',
+          '<strong>Release Manager + Nexus + Airflow MCPs</strong>: "Design a Release persona that manages Helm charts, monitors deployment pipelines, and orchestrates releases"'
+        ]
+      },
+      {
+        type: 'text',
+        value: '<h4>🎯 Example: Creating an MCP-Integrated Persona</h4>'
+      },
+      {
+        type: 'code',
+        title: 'Ask Cursor',
+        language: 'text',
+        value: `"Create a 'Jira Developer' persona that:
+1. Has expertise in agile development workflows
+2. Can access Jira MCP to search and update tickets
+3. Suggests code changes with Jira ticket references
+4. Logs work time automatically after completing tasks
+5. Updates ticket status based on development progress
+
+Configure it to use the Jira MCP server from http://indlin948:3001/"`
+      },
+      {
         type: 'text',
         value: '<h4>Command Ideas:</h4>'
       },
