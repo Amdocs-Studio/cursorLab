@@ -338,7 +338,7 @@ export const labSections: LabSection[] = [
       },
       {
         type: 'text',
-        value: '<p>Download sample rules from: <a href="https://illin7809:9999/" target="_blank">https://illin7809:9999/</a>  → click "Explore Engineering" → "AI-Accelerated Development with Cursor", and select your area.</p><p>Then add the downloaded rules to your project\'s .cursor/rules folder</p>'
+        value: '<p>Download sample rules from: <a href="https://illin7809:9999/" target="_blank">https://illin7809:9999/</a>  → "Explore Engineering" → "AI-Accelerated Development with Cursor", and select your area.</p><p>Then add the downloaded rules to your project\'s .cursor/rules folder</p>'
       },
       {
         type: 'text',
