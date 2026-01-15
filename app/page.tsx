@@ -237,7 +237,7 @@ export default function Home() {
                   )}
 
                   {content.type === 'list' && (
-                    <ul className="space-y-2 list-disc list-inside">
+                    <ul className={`space-y-2 list-disc list-inside ${content.className || ''}`}>
                       {content.items?.map((item, i) => (
                         <li key={i} className="leading-7" dangerouslySetInnerHTML={{ __html: item }} />
                       ))}

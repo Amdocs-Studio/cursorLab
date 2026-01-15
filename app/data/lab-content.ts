@@ -10,6 +10,7 @@ export interface ContentBlock {
   title?: string
   variant?: 'info' | 'warning' | 'success'
   items?: string[]
+  className?: string
   steps?: Array<{
     title: string
     description?: string
@@ -67,6 +68,17 @@ export const labSections: LabSection[] = [
           'Advanced Topics (Personas & Commands)',
           'Super Advanced Challenge (Build Your Dream)'
         ]
+      },
+      {
+        type: 'callout',
+        variant: 'success',
+        title: '💡 Quick Tip',
+        value: 'All code snippets in this lab can be copied using the copy icon that appears in the top right corner when you hover over the code block!'
+      },
+      {
+        type: 'code',
+        language: 'text',
+        value: 'Copy me →'
       },
     ]
   },
@@ -266,7 +278,13 @@ export const labSections: LabSection[] = [
         type: 'callout',
         variant: 'info',
         title: '📦 Don\'t Have npm? Behind Corporate Proxy?',
-        value: '<strong>No npm installed?</strong> Ask Cursor: "How do I install npm on my system?" - Cursor will guide you through the installation process.<br>You can (try) asking him to install it for you<br><br><strong>.npmrc</strong><br>Ask Cursor to configure your <code>.npmrc</code> file with:<br><code>proxy=http://genproxy.amdocs.com:8080/</code><br><code>https-proxy=http://genproxy.amdocs.com:8080/</code>'
+        value: '<strong>No npm installed?</strong><p>Ask Cursor: "How do I install npm on my system?" - Cursor will guide you through the installation process.<br>You can (try) asking him to install it for you<br><br><strong>.npmrc</strong><br>Ask Cursor to configure your <code>.npmrc</code> file with the following:'
+      },
+      {
+        type: 'code',
+        language: 'plaintext',
+        value: `proxy=http://genproxy.amdocs.com:8080/
+https-proxy=http://genproxy.amdocs.com:8080/`
       },
       {
         type: 'steps',
@@ -274,17 +292,32 @@ export const labSections: LabSection[] = [
           {
             title: 'Create Project',
             description: 'npx will automatically install Harmony2 if needed',
-            code: 'npx harmony2@latest create',
+            code: 'npx harmony2 create',
             language: 'bash'
           },
+          {
+            title: 'Enter Project Name and Select Template',
+            description: 'When prompted, enter your project name (e.g., "device gallery demo"), then select "Single Page Application - Light (SPA-Light)"',
+            code: '',
+            language: 'plaintext'
+          }
+        ]
+      },
+      {
+        type: 'text',
+        value: '<p style="margin-left: 3rem;"><img src="/harmony2-template-selection.png" alt="Harmony2 template selection screen showing project name input and template options with SPA-Light selected" style="max-width: 100%; border: 1px solid #ddd; border-radius: 8px; margin: 1rem 0;" /></p>'
+      },
+      {
+        type: 'steps',
+        steps: [
           {
             title: 'Explore Structure',
             description: 'Your project structure will look like this:',
             code: `src/
-├── components/    # UI components
-├── features/      # Feature modules
-├── store/         # Redux store
-└── App.tsx        # Root`,
+├── base-modules/  # Base modules
+├── bootstrap/     # Bootstrap files
+├── ui-modules/    # UI modules
+└── main.tsx       # Entry point`,
             language: 'plaintext'
           },
           {
@@ -401,10 +434,17 @@ Put these in .cursor/rules"`
           },
           {
             title: 'Test Connection',
-            code: '"Connect to Figma file: 9dCGGaBPPd9Ix4nlLm5JAA"',
+            code: `Connect to Figma https://www.figma.com/design/9dCGGaBPPd9Ix4nlLm5JAA/
+Cursor-workshop?node-id=0-1`,
             language: 'text'
           }
         ]
+      },
+      {
+        type: 'callout',
+        variant: 'warning',
+        title: '⚠️ MCP Connection Issues',
+        value: 'Sometimes Cursor is unable to connect to MCP and instead tries to open it in the browser. If that happens, it means the MCP connection needs to be checked. Verify your MCP configuration and ensure the Figma MCP server is properly set up.'
       },
       {
         type: 'text',
@@ -417,7 +457,8 @@ Put these in .cursor/rules"`
           'Install and sign in',
           'Activate the MCP Server option',
           'Keep app running in background'
-        ]
+        ],
+        className: 'ml-12'
       },
     ]
   },

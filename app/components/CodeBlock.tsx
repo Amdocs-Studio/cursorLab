@@ -19,7 +19,7 @@ export default function CodeBlock({ code, language = 'bash', title }: CodeBlockP
   }
 
   return (
-    <div className="relative group my-4 w-full max-w-full overflow-hidden">
+    <div className="relative group mb-4 w-full max-w-full overflow-hidden">
       {title && (
         <div className="bg-gray-800 text-gray-300 px-4 py-2 text-sm font-medium rounded-t-lg border-b border-gray-700">
           {title}
