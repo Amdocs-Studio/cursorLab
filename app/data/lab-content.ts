@@ -64,7 +64,9 @@ export const labSections: LabSection[] = [
           'Docs Integration (Framework Documentation)',
           'Rules (Custom Coding Standards)',
           'Figma MCP Setup',
+          'Prompt Strategy (Think Before You Prompt)',
           'Device Gallery with Figma (3 Parts)',
+          'Cursor CLI (Command Line Interface)',
           'Advanced Topics (Personas & Commands)',
           'Super Advanced Challenge (Build Your Dream)'
         ]
@@ -127,11 +129,11 @@ export const labSections: LabSection[] = [
     subtitle: 'Interface & Settings',
     duration: '5 min',
     tasks: [
-      { id: 'task-1-1', label: 'Open Cursor Settings (Ctrl+Shift+J)' },
+      { id: 'task-1-1', label: 'Open Cursor Settings (Ctrl+Shift+J / ⌘+Shift+J)' },
       { id: 'task-1-2', label: 'Open VS Code Settings (Command Palette)' },
       { id: 'task-1-3', label: 'Notice the differences' },
       { id: 'task-1-4', label: 'Open left panel (Explorer)' },
-      { id: 'task-1-5', label: 'Open right panel (Chat - Ctrl+L)' },
+      { id: 'task-1-5', label: 'Open right panel (Chat - Ctrl+L / ⌘+L)' },
       { id: 'task-1-6', label: 'Toggle terminal' },
       { id: 'task-1-7', label: 'Try opening multiple Cursor instances' },
     ],
@@ -143,10 +145,11 @@ export const labSections: LabSection[] = [
       {
         type: 'list',
         items: [
-          'Ctrl+Shift+J - Cursor Settings',
-          'Ctrl+Shift+P - Command Palette',
-          'Ctrl+L - Chat Panel',
-          'Ctrl+` - Terminal'
+          'Ctrl+Shift+J / ⌘+Shift+J - Cursor Settings',
+          'Ctrl+Shift+P / ⌘+Shift+P - Command Palette',
+          'Ctrl+L / ⌘+L - Chat Panel',
+          'Ctrl+J / ⌘+J - Terminal',
+          'Ctrl+. / ⌘+, - Toggle Mode (in chat)'
         ]
       },
     ]
@@ -335,7 +338,7 @@ https-proxy=http://genproxy.amdocs.com:8080/`
     subtitle: 'Add Harmony2 Documentation',
     duration: '5 min',
     tasks: [
-      { id: 'task-3-1', label: 'Open Cursor Settings (Ctrl+Shift+J)' },
+      { id: 'task-3-1', label: 'Open Cursor Settings (Ctrl+Shift+J / ⌘+Shift+J)' },
       { id: 'task-3-2', label: 'Find "Docs" section' },
       { id: 'task-3-3', label: 'Add: https://amdocs-studio.github.io/harmony-2.0' },
       { id: 'task-3-4', label: 'Save configuration' },
@@ -418,7 +421,7 @@ Put these in .cursor/rules"`
         steps: [
           {
             title: 'Configure MCP in Cursor',
-            description: 'Open Cursor Settings (Ctrl+Shift+J) → Find "MCP" section',
+            description: 'Open Cursor Settings (Ctrl+Shift+J / ⌘+Shift+J) → Find "MCP" section',
             code: `"Figma": {
   "url": "https://mcp.figma.com/mcp",
   "headers": {
@@ -439,6 +442,12 @@ Cursor-workshop?node-id=0-1`,
             language: 'text'
           }
         ]
+      },
+      {
+        type: 'callout',
+        variant: 'warning',
+        title: '⚠️ MCP Naming Convention',
+        value: '<strong>Important:</strong> MCP server names must use only CamelCase or SnakeCase format. No special characters, spaces, or hyphens are allowed. For example: use "FigmaMCP" or "figma_mcp", not "Figma-MCP" or "Figma MCP".'
       },
       {
         type: 'callout',
@@ -490,6 +499,123 @@ Cursor-workshop?node-id=0-1`,
         variant: 'info',
         title: 'Take 5 minutes',
         value: 'Open the Figma link, explore the design, and identify the components'
+      }
+    ]
+  },
+  {
+    id: 'prompt-strategy',
+    title: 'Prompt Strategy',
+    subtitle: 'Think Before You Prompt',
+    duration: '10 min',
+    content: [
+      {
+        type: 'callout',
+        variant: 'info',
+        title: '💡 Maximize Value from Every Prompt',
+        value: 'The quality of your prompts directly affects the quality of Cursor\'s output. Taking a moment to think strategically before prompting can save hours of iteration.'
+      },
+      {
+        type: 'text',
+        value: '<h3>🎯 The Prompt Strategy Framework</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>Before asking Cursor to build something, follow this thought process:</p>'
+      },
+      {
+        type: 'list',
+        items: [
+          '<strong>1. Understand First</strong> - Use ASK mode to understand the problem, requirements, and constraints',
+          '<strong>2. Plan Strategically</strong> - Use PLAN mode to break down complex tasks into manageable steps',
+          '<strong>3. Build Iteratively</strong> - Use AGENT mode for small, focused tasks rather than one massive request',
+          '<strong>4. Refine Continuously</strong> - Review output, identify gaps, and iterate with more specific prompts'
+        ]
+      },
+      {
+        type: 'text',
+        value: '<h3>✅ Good Prompt Examples</h3>'
+      },
+      {
+        type: 'code',
+        title: 'Good: Specific, Context-Rich',
+        language: 'text',
+        value: `"Looking at the DeviceCard component in this Figma design:
+- What properties does it need?
+- What are the key visual elements?
+- What data structure should we use?
+
+Analyze first, then suggest an implementation approach."`
+      },
+      {
+        type: 'code',
+        title: 'Good: Iterative and Focused',
+        language: 'text',
+        value: `"Create a DeviceCard component that:
+1. Displays device image, name, brand, specs, price, rating
+2. Uses Material-UI components
+3. Matches the exact colors from Figma (#FF5733 for price, #4A90E2 for rating)
+4. Is responsive (mobile-first)
+5. Includes TypeScript types
+
+Start with the basic structure, then we'll add styling."`
+      },
+      {
+        type: 'text',
+        value: '<h3>❌ Poor Prompt Examples</h3>'
+      },
+      {
+        type: 'code',
+        title: 'Poor: Too Vague',
+        language: 'text',
+        value: `"Build a device gallery"`
+      },
+      {
+        type: 'code',
+        title: 'Poor: Too Complex',
+        language: 'text',
+        value: `"Create a complete device gallery with search, filters, cards, responsive design, animations, dark mode, accessibility, tests, documentation, and deploy it to production"`
+      },
+      {
+        type: 'callout',
+        variant: 'success',
+        title: '💡 Pro Tips',
+        value: '<ul style="margin-top: 0.5rem;"><li><strong>Start Small:</strong> Break big tasks into small, testable pieces</li><li><strong>Provide Context:</strong> Tag files (@), include code snippets, reference designs</li><li><strong>Be Specific:</strong> Mention frameworks, libraries, styling approaches</li><li><strong>Iterate:</strong> Build → Review → Refine → Repeat</li><li><strong>Use the Right Mode:</strong> ASK for understanding, PLAN for strategy, AGENT for building, DEBUG for fixing</li></ul>'
+      },
+      {
+        type: 'text',
+        value: '<h3>🔄 Iterative Refinement Process</h3>'
+      },
+      {
+        type: 'text',
+        value: '<p>Example of refining a prompt:</p>'
+      },
+      {
+        type: 'code',
+        title: 'Round 1: Initial Prompt',
+        language: 'text',
+        value: `"Create a device card component"`
+      },
+      {
+        type: 'code',
+        title: 'Round 2: After Review - More Specific',
+        language: 'text',
+        value: `"Create a DeviceCard component using Material-UI with image, name, price, and rating"`
+      },
+      {
+        type: 'code',
+        title: 'Round 3: After Testing - Add Details',
+        language: 'text',
+        value: `"Update DeviceCard to match Figma design:
+- Use exact colors from Figma (#FF5733 for price)
+- Add hover effects
+- Make image responsive
+- Add loading skeleton state"`
+      },
+      {
+        type: 'callout',
+        variant: 'info',
+        title: '🎯 Remember',
+        value: 'Each iteration should be based on actual review and testing. Don\'t try to get everything perfect in one prompt - that\'s what iteration is for!'
       }
     ]
   },
