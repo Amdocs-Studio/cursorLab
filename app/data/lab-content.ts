@@ -82,6 +82,12 @@ export const labSections: LabSection[] = [
         language: 'text',
         value: 'Copy me →'
       },
+      {
+        type: 'callout',
+        variant: 'success',
+        title: '✨ Experiment & Explore',
+        value: 'While you can copy any code snippet using the copy icon, don\'t feel obligated to use them word-for-word! Especially when it comes to prompts for Cursor, we encourage you to experiment with your own phrasing and see what works best for you. The best way to learn is through exploration!'
+      },
     ]
   },
   {
