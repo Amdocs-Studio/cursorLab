@@ -260,7 +260,7 @@ export default function Home() {
                         ? 'bg-green-50 dark:bg-green-900/20 border-green-500'
                         : 'bg-blue-50 dark:bg-blue-900/20 border-blue-500'
                     }`}>
-                      <p className="font-medium mb-1">{content.title}</p>
+                      <p className="font-medium mb-1" dangerouslySetInnerHTML={{ __html: content.title || '' }} />
                       <p className="text-sm" dangerouslySetInnerHTML={{ __html: content.value }} />
                     </div>
                   )}
