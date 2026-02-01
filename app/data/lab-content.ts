@@ -73,7 +73,7 @@ export const labSections: LabSection[] = [
       },
       {
         type: 'callout',
-        variant: 'success',
+        variant: 'info',
         title: '💡 Quick Tip',
         value: 'All code snippets in this lab can be copied using the copy icon that appears in the top right corner when you hover over the code block!'
       },
@@ -84,7 +84,7 @@ export const labSections: LabSection[] = [
       },
       {
         type: 'callout',
-        variant: 'info',
+        variant: 'success',
         title: '⚠️ <strong>NOTICE</strong>',
         value: 'Just cause you <strong>CAN COPY</strong> any code snippet, doesn\'t mean you <strong>HAVE TO</strong>!<p>Especially when it comes to prompts for Cursor.<p>We encourage you to experiment with your own phrasing and see what works best for you.<p>The best way to learn is through exploration!'
       },
