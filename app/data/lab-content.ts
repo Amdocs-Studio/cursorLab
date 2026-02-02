@@ -158,6 +158,31 @@ export const labSections: LabSection[] = [
           'Ctrl+. / ⌘+, - Toggle Mode (in chat)'
         ]
       },
+      {
+        type: 'callout',
+        variant: 'warning',
+        title: '🔧 <strong>IMPORTANT</strong>: Configure Proxy (Amdocs Network)',
+        value: 'If you\'re on the Amdocs corporate network, you need to configure proxy settings for Cursor to work properly.'
+      },
+      {
+        type: 'text',
+        value: '<h4>Steps to Configure Proxy:</h4>'
+      },
+      {
+        type: 'list',
+        items: [
+          '<strong>Open Settings</strong> - Use Cmd/Ctrl + , or click the gear icon',
+          '<strong>Disable HTTP/2</strong> - Search for "http2" and enable "Disable HTTP/2"',
+          '<strong>Configure Proxy URL</strong> - Search for "proxy" and enter: <code>http://genproxy.corp.amdocs.com:8080</code>',
+          '<strong>Restart Cursor</strong> - You might need to restart Cursor for changes to take effect'
+        ]
+      },
+      {
+        type: 'callout',
+        variant: 'info',
+        title: '💡 Pro Tip',
+        value: 'Make sure to configure both the proxy URL and disable HTTP/2 for the best experience on corporate networks.'
+      },
     ]
   },
   {
@@ -292,8 +317,8 @@ export const labSections: LabSection[] = [
       {
         type: 'code',
         language: 'plaintext',
-        value: `proxy=http://genproxy.amdocs.com:8080/
-https-proxy=http://genproxy.amdocs.com:8080/`
+        value: `proxy=http://genproxy.corp.amdocs.com:8080/
+https-proxy=http://genproxy.corp.amdocs.com:8080/`
       },
       {
         type: 'steps',
