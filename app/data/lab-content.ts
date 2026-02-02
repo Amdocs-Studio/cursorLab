@@ -171,7 +171,7 @@ export const labSections: LabSection[] = [
       {
         type: 'list',
         items: [
-          '<strong>Open Settings</strong> - Use Cmd/Ctrl + , or click the gear icon',
+          '<strong>Open VS Settings</strong>',
           '<strong>Disable HTTP/2</strong> - Search for "http2" and enable "Disable HTTP/2"',
           '<strong>Configure Proxy URL</strong> - Search for "proxy" and enter: <code>http://genproxy.corp.amdocs.com:8080</code>',
           '<strong>Restart Cursor</strong> - You might need to restart Cursor for changes to take effect'
@@ -181,7 +181,7 @@ export const labSections: LabSection[] = [
         type: 'callout',
         variant: 'info',
         title: '💡 Pro Tip',
-        value: 'Make sure to configure both the proxy URL and disable HTTP/2 for the best experience on corporate networks.'
+        value: 'Make sure to configure both the proxy URL and disable HTTP/2 on corporate networks.'
       },
     ]
   },
